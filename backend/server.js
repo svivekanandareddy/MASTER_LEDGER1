@@ -13,11 +13,12 @@ app.use(cors({
   ],
   credentials: true
 }));
+
 app.use(express.json());
 
 // Test route
 app.get('/', (req, res) => {
-    res.send("Master Ledger Backend Running");
+  res.send("Master Ledger Backend Running");
 });
 
 // Routes
@@ -29,6 +30,11 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log("✅ Connected to Master Ledger DB"))
 .catch(err => console.error("❌ DB Error:", err));
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+// IMPORTANT: Export the app for Vercel
+module.exports = app;
+
+// Run locally only
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+}
