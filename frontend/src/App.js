@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Dashboard from "./components/Dashboard";
-import Login from "./components/Login";
 
 function App() {
 
-  // Always authenticated as admin
-  const [auth] = useState({
+  const auth = {
     role: "admin",
     username: "admin"
-  });
+  };
 
   return (
     <div>
