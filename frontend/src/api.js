@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 // Use environment variable for backend URL
-const API = axios.create({ baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api' });
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL
+});
 
 // This automatically sends your Admin Token to the server
 API.interceptors.request.use((req) => {
