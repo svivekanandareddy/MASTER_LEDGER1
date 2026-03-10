@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Use environment variable for backend URL
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
+  baseURL: "https://master-ledger-1-omega.vercel.app/api"
 });
 
 // This automatically sends your Admin Token to the server
